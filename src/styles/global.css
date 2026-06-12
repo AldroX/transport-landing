@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* ── Design System: Rastras Transport ─────────────── */
+
+@theme {
+  /* Color Palette */
+  --color-primary: #1a3a5c;
+  --color-primary-light: #2a5a8c;
+  --color-accent: #e8a838;
+  --color-accent-hover: #d4982e;
+  --color-dark: #0f1e2e;
+  --color-light: #f4f6f8;
+  --color-gray: #6b7b8d;
+  --color-gray-light: #dde1e7;
+
+  /* Typography */
+  --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Base Reset ────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-dark);
+  line-height: 1.6;
+  background: #ffffff;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
