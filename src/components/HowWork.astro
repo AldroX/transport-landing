@@ -1,0 +1,65 @@
+---
+interface Step {
+  number: number;
+  title: string;
+  description: string;
+}
+
+const steps: Step[] = [
+  {
+    number: 1,
+    title: 'Solicita tu Cotización',
+    description:
+      'Cuéntanos qué necesitas transportar, origen, destino y volumen. Te damos precio en menos de 2 horas.',
+  },
+  {
+    number: 2,
+    title: 'Coordinamos la Carga',
+    description:
+      'Agendamos la fecha, asignamos la rastra adecuada y coordinamos con el puerto o tu bodega para la carga.',
+  },
+  {
+    number: 3,
+    title: 'Transporte Seguro',
+    description:
+      'Tu carga viaja con seguro completo, chofer calificado y rastreo GPS en tiempo real durante todo el trayecto.',
+  },
+  {
+    number: 4,
+    title: 'Entrega Confirmada',
+    description:
+      'Recibes confirmación con firma y foto al momento de la entrega. Tu mercancía llegó sana y a tiempo.',
+  },
+];
+---
+
+<section class="py-20" id="como-funciona">
+  <div class="mx-auto max-w-[1100px] px-6">
+    <div class="reveal mb-12 text-center">
+      <h2 class="section-accent font-heading text-2xl text-dark">
+        Cómo Funciona
+      </h2>
+      <p class="mx-auto mt-4 max-w-[550px] text-gray">
+        En 4 simples pasos tu mercancía llega a destino
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      {steps.map((step, i) => (
+        <div class:list={['reveal', `reveal-delay-${i + 1}`, 'text-center']}>
+          <div
+            class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary font-heading text-[1.5rem] text-white shadow-card"
+          >
+            {step.number}
+          </div>
+          <h3 class="mb-2 font-heading text-[1.1rem] text-dark">
+            {step.title}
+          </h3>
+          <p class="mx-auto max-w-[250px] text-[.9rem] leading-relaxed text-gray">
+            {step.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

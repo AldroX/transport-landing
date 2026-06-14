@@ -1,0 +1,84 @@
+---
+import camionRastra from '../assets/imgs/Camion_rastra.jfif';
+import containers from '../assets/imgs/Containers.jfif';
+import reefer from '../assets/imgs/Reefer Container.jfif';
+import rastra from '../assets/imgs/485333297365682045.jfif'
+
+interface FleetItem {
+  image: string;
+  title: string;
+  description: string;
+  tag: string;
+}
+
+const fleet: FleetItem[] = [
+  {
+    image: rastra,
+    title: 'Rastropla',
+    description: 'Ideal para carga general y paquetería de volumen medio.',
+    tag: 'Hasta 20 toneladas',
+  },
+  {
+    image: camionRastra,
+    title: 'Plataforma Abierta',
+    description:
+      'Para carga sobredimensionada, maquinaria y materiales de construcción.',
+    tag: 'Carga especial',
+  },
+  {
+    image: containers,
+    title: 'Contenedor',
+    description:
+      'Carga sellada y protegida. Perfecta para mercancía de alto valor.',
+    tag: "20' / 40'",
+  },
+  {
+    image: reefer,
+    title: 'Refrigerada',
+    description:
+      'Cadena de frío garantizada para productos perecederos y farmacéuticos.',
+    tag: '-25°C a +25°C',
+  },
+];
+---
+
+<section class="bg-light py-20" id="flota">
+  <div class="mx-auto max-w-275 px-6">
+    <div class="reveal mb-12 text-center">
+      <h2 class="section-accent font-heading text-2xl text-dark">
+        Nuestra Flota
+      </h2>
+      <p class="mx-auto mt-4 max-w-137.5 text-gray">
+        Rastras modernas y mantenidas para garantizar la seguridad de tu carga
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {fleet.map((item, i) => (
+        <div
+          class:list={['reveal', `reveal-delay-${i + 1}`, 'overflow-hidden', 'rounded-xl', 'bg-white', 'shadow-card', 'transition-all', 'hover:-translate-y-2', 'hover:shadow-card-hover']}
+        >
+          <img
+            class="h-40 w-full object-cover"
+            src={item.image}
+            alt={item.title}
+            loading="lazy"
+          />
+          <div class="p-5">
+            <h3 class="mb-1.5 font-heading text-[1.05rem] text-dark">
+              {item.title}
+            </h3>
+            <p class="text-[.88rem] leading-relaxed text-gray">
+              {item.description}
+            </p>
+            <span
+              class="mt-2.5 inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-[.78rem] font-semibold text-primary"
+            >
+              {item.tag}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

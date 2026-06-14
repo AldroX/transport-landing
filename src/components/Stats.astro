@@ -1,0 +1,64 @@
+---
+interface StatItem {
+  target: number;
+  suffix: string;
+  label: string;
+}
+
+const stats: StatItem[] = [
+  { target: 2500, suffix: '+', label: 'Envíos realizados' },
+  { target: 98, suffix: '%', label: 'Entregas a tiempo' },
+  { target: 150, suffix: '+', label: 'Rastras activas' },
+  { target: 12, suffix: '+', label: 'Años de experiencia' },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-[1100px] px-6">
+    <div class="grid grid-cols-2 gap-8 text-center sm:grid-cols-4 sm:gap-10" id="stats-grid">
+      {stats.map((stat, i) => (
+        <div class:list={['reveal', `reveal-delay-${i + 1}`]}>
+          <span
+            class="stat-number block font-heading text-[2.4rem] leading-none text-primary sm:text-5xl"
+            data-target={stat.target}
+          >
+            0
+          </span>
+          <span class="mt-1 block text-[0.95rem] text-gray sm:mt-1.5">
+            {stat.label}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.querySelectorAll('[data-target]').forEach((el) => {
+          const target = Number(el.getAttribute('data-target'));
+          const suffixMap = { 98: '%', 2500: '+', 150: '+', 12: '+' };
+          const suffix = suffixMap[target] ?? '+';
+          let current = 0;
+          const step = Math.ceil(target / 60);
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            el.textContent = current.toLocaleString() + suffix;
+          }, 25);
+        });
+        statsObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.3 },
+  );
+
+  const statsGrid = document.getElementById('stats-grid');
+  if (statsGrid) statsObserver.observe(statsGrid);
+</script>

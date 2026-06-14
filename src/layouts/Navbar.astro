@@ -1,0 +1,55 @@
+---
+const navLinks = [
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#como-funciona', label: 'Cómo funciona' },
+  { href: '#flota', label: 'Flota' },
+  { href: '#cotizar', label: 'Cotizar' },
+];
+---
+
+<nav class="fixed top-0 z-50 w-full border-b border-white/5 bg-dark/95 py-3.5 backdrop-blur-sm">
+  <div class="mx-auto flex max-w-[1100px] items-center justify-between px-6">
+    <a
+      href="#"
+      class="flex items-center gap-2.5 font-heading text-xl text-white no-underline"
+    >
+      <span class="text-accent">Rastras</span> Transport
+    </a>
+
+    <button
+      class="nav-toggle inline-flex md:hidden items-center justify-center cursor-pointer border-none bg-transparent p-1.5 text-2xl text-white"
+      aria-label="Menú"
+      onclick="document.querySelector('.nav-links').classList.toggle('active')"
+    >
+      ☰
+    </button>
+
+    <ul class="nav-links hidden list-none gap-7 md:flex">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="relative text-[.95rem] text-white/80 no-underline transition-colors hover:text-accent"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .nav-links.active {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-dark);
+    padding: 20px 24px;
+    gap: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+</style>

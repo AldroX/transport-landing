@@ -1,0 +1,82 @@
+---
+interface Service {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const services: Service[] = [
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="1.5"/><path d="M2 10h20"/><path d="M7 2h10l2 4"/></svg>`,
+    title: 'Carga General',
+    description:
+      'Transporte de mercancías generales desde el puerto hasta tu bodega o local. Carga consolidada o exclusiva según tu volumen.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M2 7l10 5 10-5"/><path d="M12 22V12"/></svg>`,
+    title: 'Carga Paquetería',
+    description:
+      'Servicio optimizado para paquetes y cajas de menor volumen. Ideal para e-commerce y distribución de productos terminados.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4 8l3 3M17 13l3 3M4 16l3-3M17 11l3-3M8 4l2 2M14 18l2 2M8 20l2-2M14 6l2-2"/></svg>`,
+    title: 'Carga Refrigerada',
+    description:
+      'Rastras con sistema de refrigeración para productos perecederos, alimentos y farmacéuticos que requieren cadena de frío.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 7v10M7 12h10"/><path d="M12 17c-3 0-5-2-5-5"/><path d="M12 17c3 0 5-2 5-5"/></svg>`,
+    title: 'Puerto a Puerta',
+    description:
+      'Servicio completo de logística portuaria: despacho aduanal, carga en terminal y entrega directa a tu punto de destino.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/><path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>`,
+    title: 'Carga Industrial',
+    description:
+      'Maquinaria, equipamiento pesado e insumos industriales. Rastras especiales para sobrecargas y dimensiones fuera de estándar.',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>`,
+    title: 'Rastreo en Tiempo Real',
+    description:
+      'Monitorea tu carga 24/7 con nuestro sistema GPS integrado. Te mantenemos informado en cada etapa del transporte.',
+  },
+];
+---
+
+<section class="bg-light py-20" id="servicios">
+  <div class="mx-auto max-w-[1100px] px-6">
+    <!-- Section title -->
+    <div class="reveal mb-12 text-center">
+      <h2 class="section-accent font-heading text-2xl text-dark">
+        Nuestros Servicios
+      </h2>
+      <p class="mx-auto mt-4 max-w-[550px] text-gray">
+        Soluciones de transporte integrales adaptadas a las necesidades de tu
+        negocio
+      </p>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((service, i) => (
+        <div
+          class:list={['reveal', `reveal-delay-${i + 1}`, 'rounded-xl', 'bg-white', 'px-7', 'py-9', 'shadow-card', 'transition-all', 'hover:-translate-y-2', 'hover:shadow-card-hover']}
+        >
+          <!-- Icon container -->
+          <div
+            class="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent"
+            set:html={service.icon}
+          />
+          <h3 class="mb-2.5 font-heading text-[1.15rem] text-dark">
+            {service.title}
+          </h3>
+          <p class="text-[.95rem] leading-relaxed text-gray">
+            {service.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
