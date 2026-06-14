@@ -1,46 +1,54 @@
-# Astro Starter Kit: Basics
+# Rastras Transport — Landing Page
+
+Landing page corporativa para empresa de transporte de carga terrestre con logística portuaria.
+
+## Stack
+
+- **Astro** 6.4.6 · **TypeScript** strict
+- **Tailwind CSS** v4 (Vite plugin)
+- **pnpm** 10.33.2 · **Node** >= 22.12
+
+## Arquitectura
+
+```
+src/
+├── pages/
+│   └── index.astro        # Ruta única (SSG)
+├── layouts/
+│   ├── Layout.astro        # Shell HTML + fonts + scroll-reveal
+│   ├── Navbar.astro        # Navegación fija
+│   └── Footer.astro        # Footer
+├── components/
+│   ├── Hero.astro          # Hero con parallax + curva SVG
+│   ├── Stats.astro         # Contadores animados al hacer scroll
+│   ├── Services.astro      # Grid de 6 servicios
+│   ├── HowWork.astro       # 4 pasos numerados
+│   ├── Cars.astro          # Tarjetas de flota
+│   ├── CTA.astro           # Call to action con datos de contacto
+│   └── Contact.astro       # Formulario de cotización
+├── styles/
+│   └── global.css          # Tailwind v4 + design system (colores, tipografía, sombras)
+└── assets/
+    └── imgs/               # Imágenes optimizadas
+```
+
+Single Page Application con Astro (SSG). Cada sección es un componente `.astro` aislado. Animaciones via IntersectionObserver inline. Sin framework de JS — solo Astro + CSS nativo.
+
+## Secciones
+
+Hero · Estadísticas animadas · Servicios (6 tipos) · Cómo funciona (4 pasos) · Flota (4 tipos de rastra) · CTA con contacto · Formulario de cotización
+
+## Preview
+
+![Vista previa — Hero y servicios](src/assets/imgs/page-transport.png)
+
+![Vista previa — Flujo y contacto](src/assets/imgs/page-trasport-2.png)
+
+## Comandos
 
 ```sh
-pnpm create astro@latest -- --template basics
+pnpm install   # instalar dependencias
+pnpm dev       # dev server → localhost:4321
+pnpm build     # build → ./dist/
+pnpm preview   # previsualizar build
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
