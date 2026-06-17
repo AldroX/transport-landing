@@ -11,7 +11,7 @@ import heroBg from '../assets/imgs/sander-yigin-ki19VJAGh6w-unsplash.jpg';
   <!-- Background image with parallax -->
   <img
     id="hero-parallax"
-    class="absolute left-0 top-[-15%] z-0 h-[130%] w-full object-cover object-center will-change-transform"
+    class="absolute inset-0 z-0 h-full w-full object-cover object-[center_30%] will-change-transform lg:inset-x-0 lg:top-[-15%] lg:h-[130%] lg:object-center"
     src={heroBg.src}
     alt="Rastra de carga en carretera — Transporte de mercancías por carretera"
     loading="eager"
@@ -19,7 +19,7 @@ import heroBg from '../assets/imgs/sander-yigin-ki19VJAGh6w-unsplash.jpg';
   />
 
   <!-- Content with stagger reveals -->
-  <div class="relative z-20 mx-auto px-6 pt-36 pb-28 text-center">
+  <div class="relative z-20 mx-auto px-6 pt-24 pb-28 text-center lg:pt-36">
     <h1 class="reveal mb-4 font-heading text-[clamp(2rem,5vw,3.2rem)] leading-tight">
       Tu carga del <span class="text-accent">Puerto a tu negocio</span
       ><br class="hidden sm:inline" />
@@ -54,9 +54,12 @@ import heroBg from '../assets/imgs/sander-yigin-ki19VJAGh6w-unsplash.jpg';
 
 <script is:inline>
   (function () {
+    // Disable parallax on mobile — causes jank and bad cropping
+    if (window.innerWidth < 1024) return;
+
     const img = document.getElementById('hero-parallax');
     if (!img) return;
-    const speed = parseFloat(img.getAttribute('data-speed') || '0.15');
+    const speed = parseFloat(img.getAttribute('data-speed') || '0.12');
     let ticking = false;
 
     function updateParallax() {
@@ -84,9 +87,16 @@ import heroBg from '../assets/imgs/sander-yigin-ki19VJAGh6w-unsplash.jpg';
     left: 0;
     z-index: 20;
     width: 100%;
-    height: 60px;
+    height: 40px;
     background: white;
-    clip-path: ellipse(55% 100% at 50% 100%);
+    clip-path: ellipse(70% 100% at 50% 100%);
     pointer-events: none;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-curve::after {
+      height: 60px;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
   }
 </style>
