@@ -2,7 +2,7 @@
 ---
 
 <section class="bg-light py-20" id="cotizar">
-  <div class="mx-auto max-w-[1100px] px-6">
+  <div class="mx-auto max-w-275 px-6">
     <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-2">
       <!-- Left: Info -->
       <div class="reveal">
@@ -10,8 +10,8 @@
           Solicita tu Cotización
         </h2>
         <p class="mb-7 mt-4 leading-relaxed text-gray">
-          Completa el formulario y te contactamos en menos de 2 horas con una
-          propuesta personalizada.
+          Completa el formulario y te enviamos una propuesta personalizada
+          directo a tu WhatsApp.
         </p>
         <ul class="list-none space-y-3">
           <li class="flex items-center gap-2.5 text-dark">
@@ -56,7 +56,7 @@
           Datos del envío
         </h3>
 
-        <div class="mb-[18px]">
+        <div class="mb-4.5">
           <label for="nombre" class="mb-1.5 block font-heading text-[.88rem] text-dark"
             >Nombre completo *</label
           >
@@ -66,28 +66,7 @@
           />
         </div>
 
-        <div class="mb-[18px] grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div>
-            <label for="telefono" class="mb-1.5 block font-heading text-[.88rem] text-dark"
-              >Teléfono *</label
-            >
-            <input
-              type="tel" id="telefono" required placeholder="+52 55 0000 0000"
-              class="w-full rounded-lg border border-gray-light bg-light px-3.5 py-3 text-[.95rem] text-dark outline-none transition-all focus:border-accent focus:ring-2 focus:ring-accent/20"
-            />
-          </div>
-          <div>
-            <label for="email" class="mb-1.5 block font-heading text-[.88rem] text-dark"
-              >Email *</label
-            >
-            <input
-              type="email" id="email" required placeholder="correo@empresa.com"
-              class="w-full rounded-lg border border-gray-light bg-light px-3.5 py-3 text-[.95rem] text-dark outline-none transition-all focus:border-accent focus:ring-2 focus:ring-accent/20"
-            />
-          </div>
-        </div>
-
-        <div class="mb-[18px]">
+        <div class="mb-4.5">
           <label for="empresa" class="mb-1.5 block font-heading text-[.88rem] text-dark"
             >Empresa</label
           >
@@ -97,7 +76,7 @@
           />
         </div>
 
-        <div class="mb-[18px] grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="mb-4.5 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label for="origen" class="mb-1.5 block font-heading text-[.88rem] text-dark"
               >Puerto / Origen *</label
@@ -118,7 +97,7 @@
           </div>
         </div>
 
-        <div class="mb-[18px] grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="mb-4.5 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <label for="tipo-carga" class="mb-1.5 block font-heading text-[.88rem] text-dark"
               >Tipo de carga *</label
@@ -147,25 +126,28 @@
           </div>
         </div>
 
-        <div class="mb-[18px]">
+        <div class="mb-4.5">
           <label for="detalles" class="mb-1.5 block font-heading text-[.88rem] text-dark"
             >Detalles adicionales</label
           >
           <textarea
             id="detalles" rows="4"
             placeholder="Describe tu carga, fechas preferidas, requisitos especiales..."
-            class="min-h-[90px] w-full resize-y rounded-lg border border-gray-light bg-light px-3.5 py-3 text-[.95rem] text-dark outline-none transition-all focus:border-accent focus:ring-2 focus:ring-accent/20"
+            class="min-h-22.5 w-full resize-y rounded-lg border border-gray-light bg-light px-3.5 py-3 text-[.95rem] text-dark outline-none transition-all focus:border-accent focus:ring-2 focus:ring-accent/20"
           ></textarea>
         </div>
 
         <button
           type="submit"
-          class="w-full cursor-pointer rounded-lg bg-accent px-4 py-3.5 font-heading text-[1rem] text-dark no-underline shadow-button transition-all hover:-translate-y-1 hover:bg-accent-hover hover:shadow-hover"
+          class="group flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-lg bg-accent px-4 py-3.5 font-heading text-[1rem] text-dark no-underline shadow-button transition-all hover:-translate-y-1 hover:bg-accent-hover hover:shadow-hover"
         >
-          Enviar solicitud de cotización
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:scale-110">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+          Cotizar por WhatsApp
         </button>
         <p class="mt-3 text-center text-[.8rem] text-gray">
-          Tus datos están seguros. Respondemos en menos de 2 horas.
+          Te respondemos en menos de 2 horas.
         </p>
       </form>
     </div>
@@ -175,18 +157,26 @@
 <script is:inline>
   function handleContactSubmit(e) {
     e.preventDefault();
-    const form = e.target;
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = '✓ Solicitud enviada';
-    btn.style.background = '#27ae60';
-    btn.style.color = '#fff';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = 'Enviar solicitud de cotización';
-      btn.style.background = '';
-      btn.style.color = '';
-      btn.disabled = false;
-      form.reset();
-    }, 3000);
+    const f = e.target;
+
+    const nombre = f.querySelector('#nombre').value.trim();
+    const empresa = f.querySelector('#empresa').value.trim();
+    const origen = f.querySelector('#origen').value.trim();
+    const destino = f.querySelector('#destino').value.trim();
+    const tipoCarga = f.querySelector('#tipo-carga').value;
+    const peso = f.querySelector('#peso').value.trim();
+    const detalles = f.querySelector('#detalles').value.trim();
+
+    let mensaje = '¡Hola! Quiero solicitar una cotización de transporte.\n';
+    mensaje += `\n*Nombre:* ${nombre}`;
+    mensaje += `\n*Origen:* ${origen}`;
+    mensaje += `\n*Destino:* ${destino}`;
+    mensaje += `\n*Tipo de carga:* ${tipoCarga}`;
+    if (empresa) mensaje += `\n*Empresa:* ${empresa}`;
+    if (peso) mensaje += `\n*Peso:* ${peso} kg`;
+    if (detalles) mensaje += `\n*Detalles:* ${detalles}`;
+
+    const url = `https://wa.me/5359137704?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
   }
 </script>
