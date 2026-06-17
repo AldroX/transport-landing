@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://transport-landing.vercel.app',
   vite: {
     plugins: [tailwindcss()],
   },
